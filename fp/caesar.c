@@ -8,7 +8,7 @@
 #define START_BESAR 65
 #define JUMLAH_CHAR 26
 
-char kecilkan(char x)
+char hurufKecil(char x)
 {
     if (x >= START_KECIL)
     {
@@ -20,7 +20,7 @@ char kecilkan(char x)
     }
 }
 
-int urutan(char x)
+int urutanChar(char x)
 {
     if (x >= START_KECIL)
     {
@@ -32,14 +32,14 @@ int urutan(char x)
     }
 }
 
-char deciper_k(char x, int k)
+char deciperKarakter(char x, int k)
 {
     if (x > START_KECIL + JUMLAH_CHAR || x < START_BESAR)
     {
         return x;
     }
 
-    int urut = urutan(x);
+    int urut = urutanChar(x);
     char target = (urut + k) % JUMLAH_CHAR;
     if (target < 0)
     {
@@ -52,7 +52,7 @@ char deciper_k(char x, int k)
 
     if (x >= START_KECIL && x <= START_KECIL+JUMLAH_CHAR)
     {
-        return kecilkan(target);
+        return hurufKecil(target);
     }
     else
     {
@@ -77,7 +77,7 @@ int main()
 
     for (int i = 0; i < strlen(str); i++)
     {
-        printf("%c", deciper_k(str[i], k));
+        printf("%c", deciperKarakter(str[i], k));
     }
     printf("\n");
 

@@ -15,12 +15,12 @@ typedef struct
     double x, y;
 } Vector2;
 
-bool isInArea(Entity area, Vector2 titik) {
+bool dalamArea(Entity area, Vector2 titik) {
     return area.x + area.w/2 >= titik.x && area.x - area.w/2 <= titik.x &&
     area.y + area.h/2 >= titik.y && area.y - area.y/2 <= titik.y;
 }
 
-float jarak2titik(Vector2 a, Vector2 b) {
+float jarak2Titik(Vector2 a, Vector2 b) {
     return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
@@ -35,13 +35,13 @@ int main()
     scanf("%lf %lf %lf %lf", &larangan.x, &larangan.y, &larangan.w, &larangan.h);
     scanf("%lf %lf", &lifraf.x, &lifraf.y);
 
-    if (isInArea(rm, lifraf)) {
+    if (dalamArea(rm, lifraf)) {
         printf("KAMU SUDAH SAMPAI\n");
-    } else if (isInArea(larangan, lifraf)) {
+    } else if (dalamArea(larangan, lifraf)) {
         printf("KAMU TERHALANG\n");
     } else {
         Vector2 maumakan = {rm.x, rm.y};
-        float jarak = jarak2titik(lifraf, maumakan);
+        float jarak = jarak2Titik(lifraf, maumakan);
         printf("%.2f METER LAGI\n", jarak);
     }
 

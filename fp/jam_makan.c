@@ -11,7 +11,6 @@ int main()
     scanf("%d %d %d", &h, &m, &dur);
 
     int jumlahMenit = h * 60 + m + dur;
-    // printf("inp %d %d %d, menit %d\n", h,m,dur,jumlahMenit);
     if (jumlahMenit <= MAX_TIME)
     {
         printf("MASIH WAKTU\n");

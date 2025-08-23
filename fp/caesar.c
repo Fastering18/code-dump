@@ -4,18 +4,13 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define max(a, b) \
-    ({ __typeof__ (a) _a = (a); \
-       __typeof__ (b) _b = (b); \
-     _a > _b ? _a : _b; })
-
 #define START_KECIL 97
 #define START_BESAR 65
 #define JUMLAH_CHAR 26
 
 char kecilkan(char x)
 {
-    if (x >= 97)
+    if (x >= START_KECIL)
     {
         return x;
     }
@@ -25,21 +20,9 @@ char kecilkan(char x)
     }
 }
 
-char besarkan(char x)
-{
-    if (x >= 97)
-    {
-        return x - (START_BESAR - START_KECIL);
-    }
-    else
-    {
-        return x;
-    }
-}
-
 int urutan(char x)
 {
-    if (x >= 97)
+    if (x >= START_KECIL)
     {
         return x - START_KECIL;
     }
@@ -67,9 +50,8 @@ char deciper_k(char x, int k)
         target += START_BESAR;
     }
 
-    if (x >= 97)
+    if (x >= START_KECIL && x <= START_KECIL+JUMLAH_CHAR)
     {
-        // printf("target: %d %d\n", (int)target, (int)kecilkan(target));
         return kecilkan(target);
     }
     else
@@ -84,6 +66,7 @@ int main()
     scanf("%d", &k);
     k %= JUMLAH_CHAR;
 
+    // skip newline
     getchar();
 
     char str[100001];

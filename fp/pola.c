@@ -1,71 +1,4 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
-
-int main()
-{
-    int n;
-    float a, b, d;
-    long long k;
-    scanf("%d", &n);
-
-    // awal
-    scanf("%f", &a);
-    // kedua
-    scanf("%f", &b);
-
-    // skip
-    if (n == 2)
-    {
-        d = b;
-    }
-    else
-    {
-        for (int i = 0; i < n - 3; i++)
-        {
-            scanf("%*d");
-        }
-        scanf("%f", &d);
-    }
-
-    // target
-    scanf("%lld", &k);
-
-    float diff = b - a;
-    float expecta = a + diff * (n - 1);
-    if (fabs(expecta - d) < 1e-6)
-    {
-        float hasil = a + diff * (k - 1);
-        printf("Aritmetika\n%.0f\n", hasil);
-    }
-    else
-    {
-        if (a == 0)
-        {
-            printf("Pola aneh! Pak Fufu ga jelas!\n");
-            return 0;
-        }
-
-        double rasio = (double)b / a;
-        double expectb = a * pow(rasio, n - 1);
-        if (fabs(expectb - d) < 1e-6)
-        {
-            double hasil = a * pow(rasio, k - 1);
-            printf("Geometri\n%.0f\n", round(hasil));
-        }
-        else
-        {
-            printf("Pola aneh! Pak Fufu ga jelas!\n");
-        }
-    }
-
-    return 0;
-}
-
-/*
-
-#include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
 
@@ -119,5 +52,3 @@ int main() {
 
     return 0;
 }
-
-*/

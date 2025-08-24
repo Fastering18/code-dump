@@ -2,9 +2,6 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
-#include <stdlib.h>
-#include <stdbool.h>
 
 #define START_KECIL 97
 #define START_BESAR 65

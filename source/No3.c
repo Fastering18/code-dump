@@ -1,3 +1,5 @@
+// Tebak Pola Pak Fufu
+
 #include <stdio.h>
 #include <math.h>
 
